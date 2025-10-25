@@ -6,14 +6,18 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -32,6 +36,8 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import com.example.photos.ui.theme.PhotosTheme
+import androidx.compose.foundation.lazy.items
+
 
 data class Data(
     val name: String,
@@ -75,9 +81,27 @@ fun Photo(modifier: Modifier = Modifier) {
 
     Box(modifier = Modifier.fillMaxSize()) {
         Column(modifier = modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+
+            /*LazyRow(
+                contentPadding = PaddingValues(vertical = 20.dp, horizontal = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(photos) {
+                    AsyncImage(
+                        model = it.url,
+                        contentDescription = it.name,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .height(205.dp)
+                            .clickable{fotoSeleccionada = it}
+                            .width(200.dp)
+                    )
+                }
+            }*/
+
             HorizontalUncontainedCarousel(
                 state = rememberCarouselState { photos.count() },
-                itemWidth = 180.dp,
+                itemWidth = 200.dp,
                 itemSpacing = 8.dp,
                 modifier = Modifier.fillMaxWidth()
             ) {
