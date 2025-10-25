@@ -101,7 +101,7 @@ fun Photo(modifier: Modifier = Modifier) {
 
             HorizontalUncontainedCarousel(
                 state = rememberCarouselState { photos.count() },
-                itemWidth = 200.dp,
+                itemWidth = 180.dp,
                 itemSpacing = 8.dp,
                 modifier = Modifier.fillMaxWidth()
             ) {
